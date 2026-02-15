@@ -1,4 +1,4 @@
-# Fiskdam - Interaktiv Webbsida
+# Dammen - Interaktiv Webbsida
 
 Ett grafiskt interaktivt projekt där fiskar reagerar på klick och hover med animationer och ljud.
 
