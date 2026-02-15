@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" viewBox="0 0 120 80">
+  <!-- Rosa/lila fisk -->
+  <ellipse cx="50" cy="40" rx="35" ry="22" fill="#E94B9E" stroke="#C73680" stroke-width="2"/>
+  <!-- Svans -->
+  <path d="M 15 40 L 3 25 L 10 35 L 5 40 L 10 45 L 3 55 Z" fill="#E94B9E" stroke="#C73680" stroke-width="2"/>
+  <!-- Fenor -->
+  <ellipse cx="40" cy="55" rx="12" ry="8" fill="#F06CA9" opacity="0.8"/>
+  <ellipse cx="60" cy="58" rx="10" ry="7" fill="#F06CA9" opacity="0.8"/>
+  <!-- Prickar -->
+  <circle cx="38" cy="35" r="3" fill="#FF69B4"/>
+  <circle cx="50" cy="38" r="3" fill="#FF69B4"/>
+  <circle cx="62" cy="36" r="3" fill="#FF69B4"/>
+  <!-- Öga -->
+  <circle cx="70" cy="35" r="6" fill="white"/>
+  <circle cx="72" cy="35" r="3" fill="black"/>
+  <!-- Leende -->
+  <path d="M 75 42 Q 80 46 85 42" stroke="#C73680" stroke-width="2" fill="none"/>
+</svg>

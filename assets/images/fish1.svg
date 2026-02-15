@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="80" viewBox="0 0 120 80">
+  <!-- Orange fisk -->
+  <ellipse cx="50" cy="40" rx="35" ry="22" fill="#FF8C42" stroke="#FF6B1A" stroke-width="2"/>
+  <!-- Svans -->
+  <path d="M 15 40 L 5 25 L 10 40 L 5 55 Z" fill="#FF8C42" stroke="#FF6B1A" stroke-width="2"/>
+  <!-- Fena -->
+  <path d="M 50 20 L 45 10 L 55 15 Z" fill="#FF6B1A"/>
+  <!-- Öga -->
+  <circle cx="70" cy="35" r="6" fill="white"/>
+  <circle cx="72" cy="35" r="3" fill="black"/>
+</svg>

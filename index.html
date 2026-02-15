@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiskdam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanalei&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Musik kontroll knapp -->
+    <button id="musicToggle" class="music-button">🎵 Starta Musik</button>
+    
+    <div class="container">
+        Min fiskdam! Klicka på fiskarna för att höra deras ljud!
+        <div class="pond">
+            <!-- Fiskar kommer här -->
+            <div class="fish" data-sound="assets/sounds/jingle1.mp3">
+                <img src="assets/images/fish1.svg" alt="Fisk 1">
+            </div>
+            <div class="fish" data-sound="assets/sounds/jingle2.mp3">
+                <img src="assets/images/fish2.svg" alt="Fisk 2">
+            </div>
+            <div class="fish" data-sound="assets/sounds/jingle3.mp3">
+                <img src="assets/images/fish3.svg" alt="Fisk 3">
+            </div>
+            <div class="fish" data-sound="assets/sounds/jingle4.mp3">
+                <img src="assets/images/fish4.svg" alt="Fisk 4">
+            </div>
+            <div class="fish" data-sound="assets/sounds/jingle1.mp3">
+                <img src="assets/images/fish5.svg" alt="Fisk 5">
+            </div>
+            <div class="fish" data-sound="assets/sounds/jingle2.mp3">
+                <img src="assets/images/fish6.svg" alt="Fisk 6">
+            </div>
+            <div class="fish" data-sound="assets/sounds/jingle3.mp3">
+                <img src="assets/images/fish7.svg" alt="Fisk 7">
+            </div>
+            <div class="fish" data-sound="assets/sounds/jingle4.mp3">
+                <img src="assets/images/fish8.svg" alt="Fisk 8">
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio element för att spela ljud -->
+    <audio id="audioPlayer"></audio>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
