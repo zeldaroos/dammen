@@ -57,6 +57,32 @@ Alternativt, dra och släpp `index.html` direkt till din webbläsare.
   - Extra bubblor skapas
 - **Bubblor**: Kontinuerliga bubblor animeras uppåt i dammen
 
+## Animationer (hur de fungerar)
+
+Den mesta rörelsen ligger direkt i SVG-filen `assets/images/Dammen_bilder.svg` via `animateTransform`.
+
+### Molnens rörelse
+
+Molnen rör sig horisontellt fram och tillbaka i en loop (`repeatCount="indefinite"`):
+
+- `Moln_topp`: `values="0 0; 30 0; 0 0"`, `dur="6s"`
+  - Rör sig 30 px åt höger och tillbaka på 6 sekunder.
+- `Moln_vänster`: `values="0 0; 35 0; 0 0"`, `dur="8s"`
+  - Rör sig 35 px åt höger och tillbaka på 8 sekunder.
+- `Moln_höger_group`: `values="0 0; -30 0; 0 0"`, `dur="7s"`
+  - Rör sig 30 px åt vänster och tillbaka på 7 sekunder.
+
+Det gör att molnen driver i olika takt och riktning, vilket ger en lugn parallax-känsla.
+
+### Interaktiv animation i JavaScript
+
+I `js/main.js` laddas SVG:en in via `<object id="dammen-svg">`, och varje plats (`1` till `5`) får klick- och hoverbeteende:
+
+- Klick växlar till nästa grupp i ordning (stängd näckros, öppen näckros, stor gren, liten gren, rosfisk, långfisk).
+- Hover på aktiv grupp lyfter objektet med `translateY(-8px)`.
+
+All växling sker genom att visa en grupp i taget (`display: inline`) och dölja övriga (`display: none`).
+
 ## Anpassning
 
 ### Byt fiskbild
