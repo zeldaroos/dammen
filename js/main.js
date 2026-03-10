@@ -3,115 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const fishes = document.querySelectorAll('.fish');
     const audioPlayer = document.getElementById('audioPlayer');
     const pond = document.querySelector('.pond');
-    const musicToggle = document.getElementById('musicToggle');
     
     // Web Audio API för fallback-ljud
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    
-    // Bakgrundsmusik och ljud
-    let backgroundMusicPlaying = false;
-    let ambientOscillators = [];
-    
-    // Skapa ambient vattenljud
-    function createAmbientSound() {
-        // Låg grundton för vatten
-        const bass = audioContext.createOscillator();
-        const bassGain = audioContext.createGain();
-        bass.connect(bassGain);
-        bassGain.connect(audioContext.destination);
-        bass.frequency.value = 80 + Math.random() * 20;
-        bass.type = 'sine';
-        bassGain.gain.value = 0.03;
-        
-        // Mjuka bubbelljud
-        const bubble = audioContext.createOscillator();
-        const bubbleGain = audioContext.createGain();
-        bubble.connect(bubbleGain);
-        bubbleGain.connect(audioContext.destination);
-        bubble.frequency.value = 200 + Math.random() * 400;
-        bubble.type = 'sine';
-        bubbleGain.gain.value = 0.01;
-        
-        // Högfrekvent "glitter" ljud
-        const shimmer = audioContext.createOscillator();
-        const shimmerGain = audioContext.createGain();
-        shimmer.connect(shimmerGain);
-        shimmerGain.connect(audioContext.destination);
-        shimmer.frequency.value = 1000 + Math.random() * 1000;
-        shimmer.type = 'triangle';
-        shimmerGain.gain.value = 0.005;
-        
-        return [
-            { osc: bass, gain: bassGain },
-            { osc: bubble, gain: bubbleGain },
-            { osc: shimmer, gain: shimmerGain }
-        ];
-    }
-    
-    // Starta bakgrundsmusik
-    function startBackgroundMusic() {
-        if (backgroundMusicPlaying) return;
-        
-        // Skapa flera lager av ambient ljud
-        for (let i = 0; i < 3; i++) {
-            const sounds = createAmbientSound();
-            sounds.forEach(({ osc, gain }) => {
-                osc.start();
-                ambientOscillators.push({ osc, gain });
-                
-                // Variera volymen över tid
-                setInterval(() => {
-                    const targetVolume = gain.gain.value * (0.8 + Math.random() * 0.4);
-                    gain.gain.linearRampToValueAtTime(targetVolume, audioContext.currentTime + 2);
-                }, 3000 + Math.random() * 2000);
-            });
-        }
-        
-        backgroundMusicPlaying = true;
-        musicToggle.textContent = '🎵 Musik På';
-        musicToggle.classList.add('playing');
-    }
-    
-    // Stoppa bakgrundsmusik
-    function stopBackgroundMusic() {
-        ambientOscillators.forEach(({ osc, gain }) => {
-            gain.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.5);
-            setTimeout(() => osc.stop(), 500);
-        });
-        ambientOscillators = [];
-        backgroundMusicPlaying = false;
-        musicToggle.textContent = '🎵 Starta Musik';
-        musicToggle.classList.remove('playing');
-    }
-    
-    // Toggle musik
-    musicToggle.addEventListener('click', () => {
-        if (audioContext.state === 'suspended') {
-            audioContext.resume();
-        }
-        
-        if (backgroundMusicPlaying) {
-            stopBackgroundMusic();
-        } else {
-            startBackgroundMusic();
-        }
-    });
-    
-    // Ploppljud för bubblor
-    function playBubbleSound() {
-        const osc = audioContext.createOscillator();
-        const gain = audioContext.createGain();
-        osc.connect(gain);
-        gain.connect(audioContext.destination);
-        
-        osc.frequency.value = 300 + Math.random() * 200;
-        osc.type = 'sine';
-        gain.gain.setValueAtTime(0.02, audioContext.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.3);
-        
-        osc.start();
-        osc.stop(audioContext.currentTime + 0.3);
-    }
     
     function createJingle(frequency, duration, type = 'sine') {
         const oscillator = audioContext.createOscillator();
@@ -152,46 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // Funktion för att skapa bubblor
-    function createBubble() {
-        const bubble = document.createElement('div');
-        bubble.classList.add('bubble');
-        bubble.style.left = Math.random() * 100 + '%';
-        bubble.style.animationDuration = (Math.random() * 2 + 2) + 's';
-        bubble.style.width = bubble.style.height = (Math.random() * 15 + 10) + 'px';
-        pond.appendChild(bubble);
-        
-        // Spela ploppljud ibland
-        if (Math.random() > 0.7 && backgroundMusicPlaying) {
-            playBubbleSound();
-        }
-        
-        // Ta bort bubblan efter animationen
-        setTimeout(() => {
-            bubble.remove();
-        }, 4000);
-    }
-    
-    // Skapa bubblor med jämna mellanrum
-    setInterval(createBubble, 1500);
+
     
     // Lägg till event listeners för varje fisk
     fishes.forEach(fish => {
-        // Hover effekt
-        fish.addEventListener('mouseenter', function() {
-            this.classList.add('hovered');
-            
-            // Ta bort klassen efter animationen
-            setTimeout(() => {
-                this.classList.remove('hovered');
-            }, 500);
-        });
-        
         // Click effekt
         fish.addEventListener('click', function() {
-            // Lägg till animation klass
-            this.classList.add('clicked');
-            
             // Spela ljud
             const soundFile = this.dataset.sound;
             if (soundFile) {
@@ -204,16 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             }
-            
-            // Skapa extra bubblor vid klick
-            for (let i = 0; i < 3; i++) {
-                setTimeout(() => createBubble(), i * 200);
-            }
-            
-            // Ta bort animation klass efter den är klar
-            setTimeout(() => {
-                this.classList.remove('clicked');
-            }, 600);
         });
     });
     
