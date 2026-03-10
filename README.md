@@ -1,6 +1,6 @@
-# Dammen - Interaktiv Webbsida
+# Dammen - Interaktiv webbsida
 
-Ett grafiskt interaktivt projekt där en fisk reagerar på klick och hover med animationer och ljud.
+Ett grafiskt interaktivt projekt där en fisk reagerar på klick och hovring med animationer och ljud.
 
 ## Projektstruktur
 
@@ -12,15 +12,15 @@ Dammen/
 ├── js/
 │   └── main.js        # Interaktivitet och ljudhantering
 ├── assets/
-│   ├── images/        # Dina fiskbilder (PNG/SVG)
-│   └── sounds/        # Dina ljudfiler (MP3/WAV)
+│   ├── images/        # Fiskbild(er) (PNG/SVG)
+│   └── sounds/        # Ljudfiler (MP3/WAV)
 └── README.md          # Denna fil
 ```
 
 ## Hur du använder projektet
 
 ### 1. Lägg till din bild
-Placera din fiskbild i `assets/images/` mappen:
+Placera din fiskbild i mappen `assets/images/`:
 - `Dammen_bilder.svg`
 
 Du kan använda SVG eller PNG med transparent bakgrund för bäst resultat.
@@ -32,14 +32,14 @@ Placera dina jingel-ljudfiler i `assets/sounds/` mappen:
 - `jingle3.mp3`
 - `jingle4.mp3`
 
-MP3 format rekommenderas för bred webbläsarkompatibilitet.
+MP3-format rekommenderas för bred webbläsarkompatibilitet.
 
 ### 3. Öppna sidan
 
 #### I VS Code:
 1. Högerklicka på `index.html`
-2. Välj "Open with Live Server" (om du har Live Server extension)
-   - Om du inte har det, installera "Live Server" extension från Extensions marketplace
+2. Välj "Open with Live Server" (om du har tillägget Live Server)
+  - Om du saknar det, installera tillägget "Live Server" från Extensions Marketplace
 
 #### I webbläsare:
 1. Högerklicka på `index.html` i VS Code
@@ -50,7 +50,7 @@ Alternativt, dra och släpp `index.html` direkt till din webbläsare.
 
 ## Funktioner
 
-- **Hover-effekt**: När du håller musen över en fisk wiglar den och blir lite större
+- **Hover-effekt**: När du håller musen över en fisk vickar den och blir lite större
 - **Klick-effekt**: När du klickar på en fisk:
   - Fisken studsar med en animation
   - En jingel spelas
@@ -78,8 +78,8 @@ Justera animationstider och effekter i `css/style.css` under `@keyframes`.
 ## Tekniker som används
 
 - **HTML5**: Semantisk struktur
-- **CSS3**: Grid layout, animations, gradients
-- **JavaScript**: Event listeners, DOM manipulation, audio API
+- **CSS3**: Grid-layout, animationer och gradients
+- **JavaScript**: Event listeners, DOM-manipulation och Audio API
 
 ## Webbläsarkompatibilitet
 
@@ -90,8 +90,8 @@ Fungerar i alla moderna webbläsare:
 
 ## Tips
 
-- Använd transparenta PNG-bilder för bäst resultat
-- Håll ljudfilerna korta (1-2 sekunder) för snabbare laddning
-- Optimera bilderna för webben (max 200-300px bredd)
+- Använd transparenta SVG- eller PNG-bilder för bäst resultat
+- Håll ljudfilerna korta (1–2 sekunder) för snabbare laddning
+- Optimera bilderna för webben (max 200–300 px bredd)
 
 Lycka till med ditt projekt! 🐟
