@@ -1,6 +1,6 @@
 # Dammen - Interaktiv Webbsida
 
-Ett grafiskt interaktivt projekt där fiskar reagerar på klick och hover med animationer och ljud.
+Ett grafiskt interaktivt projekt där en fisk reagerar på klick och hover med animationer och ljud.
 
 ## Projektstruktur
 
@@ -19,14 +19,11 @@ Dammen/
 
 ## Hur du använder projektet
 
-### 1. Lägg till dina bilder
-Placera dina fiskbilder i `assets/images/` mappen:
-- `fish1.png`
-- `fish2.png`
-- `fish3.png`
-- `fish4.png`
+### 1. Lägg till din bild
+Placera din fiskbild i `assets/images/` mappen:
+- `Dammen_bilder.svg`
 
-Du kan använda PNG eller SVG format med transparent bakgrund för bäst resultat.
+Du kan använda SVG eller PNG med transparent bakgrund för bäst resultat.
 
 ### 2. Lägg till dina ljudfiler
 Placera dina jingel-ljudfiler i `assets/sounds/` mappen:
@@ -62,11 +59,11 @@ Alternativt, dra och släpp `index.html` direkt till din webbläsare.
 
 ## Anpassning
 
-### Lägg till fler fiskar
-I `index.html`, kopiera och modifiera fish-divarna:
+### Byt fiskbild
+I `index.html`, uppdatera bildsökvägen i fish-diven:
 ```html
-<div class="fish" data-sound="assets/sounds/jingle5.mp3">
-    <img src="assets/images/fish5.png" alt="Fisk 5">
+<div class="fish" data-sound="assets/sounds/jingle1.mp3">
+    <img src="assets/images/Dammen_bilder.svg" alt="Min Fisk">
 </div>
 ```
 
