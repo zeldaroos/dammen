@@ -79,6 +79,53 @@ document.addEventListener('DOMContentLoaded', function () {
             render();
         }
 
+        function setupWaveMotion() {
+            const waves = Array.from({ length: 9 }, function (_, index) {
+                return svgDocument.getElementById('Våg_' + (index + 1));
+            }).filter(Boolean);
+
+            const pol = svgDocument.getElementById('Pöl');
+
+            if (!waves.length && !pol) {
+                return;
+            }
+
+            const amplitudePx = 3;
+            const polCycleDurationMs = 2000;
+            const polScaleAmplitude = 0.025;
+
+            waves.forEach(function (wave) {
+                wave.style.opacity = '1';
+                wave.style.transformBox = 'fill-box';
+                wave.style.transformOrigin = 'center';
+            });
+
+            if (pol) {
+                pol.style.transformBox = 'fill-box';
+                pol.style.transformOrigin = 'center';
+            }
+
+            function animate(timestamp) {
+                const basePhase = (timestamp / polCycleDurationMs) * Math.PI * 2;
+
+                waves.forEach(function (wave, index) {
+                    const phase = basePhase + index * 0.6;
+                    const offsetX = Math.sin(phase) * amplitudePx;
+                    wave.style.transform = 'translateX(' + offsetX.toFixed(3) + 'px)';
+                });
+
+                if (pol) {
+                    const scale = 0.995 + Math.sin(basePhase) * 0.005;
+                    pol.style.transform = 'scale(' + scale.toFixed(4) + ')';
+                }
+
+                window.requestAnimationFrame(animate);
+            }
+
+            window.requestAnimationFrame(animate);
+        }
+
         placesToEnable.forEach(setupPlace);
+        setupWaveMotion();
     });
 });
